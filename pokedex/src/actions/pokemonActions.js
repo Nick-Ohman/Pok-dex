@@ -9,7 +9,7 @@ export const GetPokemonList = (page) => async dispatch => {
         const perPage = 15;
         const offset = (page * perPage) - perPage;
 
-        const res = await axions.get(`https://pokeapi.co/api/v2/pokemon?limit=15&offset=${offset}`)
+        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${perPage}&offset=${offset}`)
 
         dispatch({
             type:"POKEMON_LIST_SUCCESS",
@@ -18,7 +18,7 @@ export const GetPokemonList = (page) => async dispatch => {
  
     } catch (e) {
         dispatch({
-            type: "POKEMON_LIST_FAIL"
+            type: "POKEMON_LIST_FAIL",
         })
     }
 };
