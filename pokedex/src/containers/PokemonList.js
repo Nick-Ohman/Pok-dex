@@ -1,10 +1,12 @@
-import React from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import React, {useState} from "react";
+import { useDispatch, useSelector} from "react-redux";
 import _ from "lodash";
-import { GetPokemonList } from "../actions/pokemonActions"
-import { Link } from "react-router-dom"
+import { GetPokemonList } from "../actions/pokemonActions";
+import { Link } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
-const PokemonList = () => {
+const PokemonList = (props) => {
+    const [search, setSearch] = useState("");
     const dispatch = useDispatch();
     const pokemonList = useSelector(state => state.PokemonList);
     React.useEffect(() => {
@@ -13,6 +15,11 @@ const PokemonList = () => {
 
     const FetchData = (page = 1) => {
         dispatch(GetPokemonList(page))
+
+    }
+
+    if (pokemonList.loading) {
+        return <p>Loading...</p>
     }
 
     const showData = () => {
@@ -31,9 +38,7 @@ const PokemonList = () => {
             )
         }
         
-        if (pokemonList.loading) {
-            return <p>Loading...</p>
-        }
+        
 
         if (pokemonList.errorMsg !== "") {
             return <p>{pokemonList.errorMsg}</p>
@@ -42,7 +47,22 @@ const PokemonList = () => {
     };
     return (
         <div>
+            <div className ="search-wrapper">
+                <p>Search</p>
+                <input type="text" onChange={e => setSearch(e.target.value)}/>
+                <button onClick={() => props.history.push(`/pokemon/${search}`)}>Search</button>
+
+            </div>
             {showData()}
+           {!_.isEmpty(pokemonList.data) && (
+               <ReactPaginate 
+               pageCount={Math.ceil(pokemonList.count / 15)}
+               pageRangeDisplayed={2}
+               marginPagesDisplayed={1}
+               onPageChange={(data) => FetchData(data.selected + 1)}
+               containerClassName={"paginationgit"}
+               />
+           )}
         </div>
     )
 };
