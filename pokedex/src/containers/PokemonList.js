@@ -10,9 +10,9 @@ const PokemonList = (props) => {
     const dispatch = useDispatch();
     const pokemonList = useSelector(state => state.PokemonList);
 
-    React.useEffect((page =1 ) => {
+    React.useEffect((page = 1 ) => {
         dispatch(GetPokemonList(page))
-    }, [dispatch, pokemonList]);
+    }, [dispatch]);
 
 
     
