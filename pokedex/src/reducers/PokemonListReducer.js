@@ -17,7 +17,7 @@ const PokemonListReducer = (state = DefaultState, action) => {
                 ...state,
                 loading: false,
                 errorMsg : "Unable to get Pokemon",
-                errorMsg: ""
+            
             };
 
         case "POKEMON_LIST_SUCCESS":

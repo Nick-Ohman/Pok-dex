@@ -10,7 +10,7 @@ const Pokemon = (props) => {
 
     React.useEffect(() => {
         dispatch(GetPokemon(pokemonName))
-    }, [])
+    }, [dispatch, pokemonName])
 
 
     const ShowData = () => {
