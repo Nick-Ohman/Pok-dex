@@ -9,14 +9,14 @@ const PokemonList = (props) => {
     const [search, setSearch] = useState("");
     const dispatch = useDispatch();
     const pokemonList = useSelector(state => state.PokemonList);
-    React.useEffect(() => {
-        FetchData(1)
-    }, [FetchData]);
-
     const FetchData = (page = 1) => {
         dispatch(GetPokemonList(page))
 
     }
+    React.useEffect(() => {
+        FetchData(1)
+    }, [FetchData]);
+
 
     
 
