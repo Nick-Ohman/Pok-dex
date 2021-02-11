@@ -29,7 +29,7 @@ const PokemonList = (props) => {
                         return (
                             <div className="pokemon-item">
                                 <p>{list.name}</p>
-                                <Link to={`/pokemon/${list.name}`}>View</Link>
+                                <Link className="view" to={`/pokemon/${list.name}`}>View</Link>
                             </div>
                         )
                     })}
@@ -47,9 +47,9 @@ const PokemonList = (props) => {
     return (
         <div>
             <div className="search-wrapper">
-                <p>Search</p>
-                <input type="text" onChange={e => setSearch(e.target.value)} />
-                <button onClick={() => props.history.push(`/pokemon/${search}`)}>Search</button>
+                <h2>Search</h2>
+                <input className="search" type="text" onChange={e => setSearch(e.target.value)} />
+                <button className="searchb" onClick={() => props.history.push(`/pokemon/${search}`)}>Search</button>
 
             </div>
             {showData()}

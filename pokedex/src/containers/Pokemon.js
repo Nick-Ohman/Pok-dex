@@ -12,26 +12,31 @@ const Pokemon = (props) => {
         dispatch(GetPokemon(pokemonName))
     }, [dispatch, pokemonName])
 
-
+    
     const ShowData = () => {
         if (!_.isEmpty(pokemonState.data[pokemonName])) {
             const pokeData = pokemonState.data[pokemonName];
             return (
+                <>
+                <div className="namerender">
+
+                <h1 className="name" >{pokemonName}</h1>
+                </div>
                 <div className="pokemon-wrapper">
+                    
                     <div className="'item">
-                        <h1>Sprites</h1>
-                        <img src={pokeData.sprites.front_default} alt=""/>
-                        <img src={pokeData.sprites.back_default} alt=""/>
+                    
+                        <img className="pimage" src={pokeData.sprites.front_default} alt=""/>
                     </div>
                     <div className="item">
-                        <h1>Stats</h1>
+                        <h2>Stats</h2>
                         {pokeData.stats.map(list => {
                             return <p>{list.stat.name} {list.base_stat}</p>
                         })}
                     </div>
 
                     <div className="item">
-                        <h1>Abilities</h1>
+                        <h2>Abilities</h2>
                         {pokeData.abilities.map(list => {
                             return <p>{list.ability.name}</p>
                         })}
@@ -39,6 +44,7 @@ const Pokemon = (props) => {
                     </div>
 
                 </div>
+                </>
             )
         }
 
@@ -54,7 +60,7 @@ const Pokemon = (props) => {
     }
     return (
         <>
-            <div>{pokemonName}</div>
+            
             <div>{ShowData()}</div>
         </>
     )
