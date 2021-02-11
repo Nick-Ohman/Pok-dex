@@ -36,3 +36,19 @@ nav a {
   border: 1px solid black;
 
 }
+
+
+.pagination {
+  display: flex;
+  width: 500px;
+  margin: auto;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.pokemon-wrapper{
+  display: flex;
+  background-color: ;
+  
+  
+}
