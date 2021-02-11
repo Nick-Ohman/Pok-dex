@@ -9,13 +9,10 @@ const PokemonList = (props) => {
     const [search, setSearch] = useState("");
     const dispatch = useDispatch();
     const pokemonList = useSelector(state => state.PokemonList);
-    const FetchData = (page = 1) => {
-        dispatch(GetPokemonList(page))
 
-    }
-    React.useEffect(() => {
-        FetchData(1)
-    }, [FetchData]);
+    React.useEffect((page =1 ) => {
+        dispatch(GetPokemonList(page))
+    }, [dispatch, pokemonList]);
 
 
     
@@ -61,7 +58,7 @@ const PokemonList = (props) => {
                     pageCount={Math.ceil(pokemonList.count / 15)}
                     pageRangeDisplayed={2}
                     marginPagesDisplayed={1}
-                    onPageChange={(data) => FetchData(data.selected + 1)}
+                    onPageChange={(data) => dispatch(GetPokemonList(data.selected + 1))}
                     containerClassName={"pagination"}
                 />
             )}
