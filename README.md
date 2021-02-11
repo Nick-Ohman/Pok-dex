@@ -11,4 +11,4 @@ With this app you can
 - View their indivual stats
 
 This is a work in progress, but a feature I am working is.
-- A favorites component so you can save your favorite pokemon.
+- A favorites component so you can save your favorite pokemon in one place.
