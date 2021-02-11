@@ -14,7 +14,6 @@ const PokemonList = (props) => {
         dispatch(GetPokemonList(page))
     }, [dispatch]);
 
-
     const showData = () => {
         if (pokemonList.loading) {
             return <p>Loading...</p>
@@ -36,8 +35,6 @@ const PokemonList = (props) => {
                 </div>
             )
         }
-
-
 
         if (pokemonList.errorMsg !== "") {
             return <p>{pokemonList.errorMsg}</p>

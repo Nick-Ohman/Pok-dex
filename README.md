@@ -10,5 +10,6 @@ With this app you can
 - Seach your favorite Pokemon
 - View their indivual stats
 
-This is a work in progress, but a feature I am working is.
+This is a work in progress, but a few features I am working is.
 - A favorites component so you can save your favorite pokemon in one place.
+- Testing
