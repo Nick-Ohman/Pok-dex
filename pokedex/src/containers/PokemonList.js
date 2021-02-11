@@ -2,23 +2,28 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
 import { GetPokemonList } from "../actions/pokemonActions";
+
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 
 const PokemonList = (props) => {
+    const pokemonName = props.match.params.pokemon;
     const [search, setSearch] = useState("");
     const dispatch = useDispatch();
     const pokemonList = useSelector(state => state.PokemonList);
+    
 
     React.useEffect((page = 1 ) => {
         dispatch(GetPokemonList(page))
     }, [dispatch]);
 
+   
+
     const showData = () => {
         if (pokemonList.loading) {
             return <p>Loading...</p>
         }
-
+        
         if (!_.isEmpty(pokemonList.data)) {
 
             return (
@@ -27,6 +32,7 @@ const PokemonList = (props) => {
                         
                         return (
                             <div className="pokemon-item">
+                                
                                 <p>{list.name}</p>
                                 <Link className="view" to={`/pokemon/${list.name}`}>View</Link>
                             </div>
