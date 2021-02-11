@@ -16,11 +16,12 @@ const Pokemon = (props) => {
     const ShowData = () => {
         if (!_.isEmpty(pokemonState.data[pokemonName])) {
             const pokeData = pokemonState.data[pokemonName];
+            const p = pokemonName.toUpperCase()
             return (
                 <>
                 <div className="namerender">
 
-                <h1 className="name" >{pokemonName}</h1>
+                <h1 className="name" >{p}</h1>
                 </div>
                 <div className="pokemon-wrapper">
                     

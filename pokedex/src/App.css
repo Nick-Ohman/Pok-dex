@@ -92,9 +92,10 @@ nav a {
   width: 100%;
 }
 .name{
-  
-  margin-left: 5%;
+  display: flex;
+  justify-content: center;
 }
+
 
 .pokemon-wrapper{
   width: 100%;

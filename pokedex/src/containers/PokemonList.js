@@ -15,17 +15,17 @@ const PokemonList = (props) => {
     }, [dispatch]);
 
 
-    
-
     const showData = () => {
         if (pokemonList.loading) {
             return <p>Loading...</p>
         }
 
         if (!_.isEmpty(pokemonList.data)) {
+
             return (
                 <div className="list-wrapper">
                     {pokemonList.data.map(list => {
+                        
                         return (
                             <div className="pokemon-item">
                                 <p>{list.name}</p>
